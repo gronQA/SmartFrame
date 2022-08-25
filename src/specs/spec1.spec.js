@@ -16,7 +16,7 @@ async function spec() {
     .switchTo()
     .frame(driver.findElement(By.className("smartframe-embed")));
 
-  let actualCaptionText = await driver
+  const actualCaptionText = await driver
     .findElement(By.className("caption-wrapper"))
     .getText()
     .then(function (value) {
@@ -27,7 +27,7 @@ async function spec() {
 
   await driver.findElement(By.className("action-buttons__caption")).click();
 
-  let isLayerOpen = await driver
+  const isLayerOpen = await driver
     .findElement(By.className("hide-copyright"))
     .isDisplayed();
 
