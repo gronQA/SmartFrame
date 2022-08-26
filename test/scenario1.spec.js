@@ -10,6 +10,7 @@ describe("Test scenario 1", function () {
 
     await driver.get("https://smartitnow.blogspot.com/p/e.html");
 
+    // Mouse over the SmartFrame
     const hoverable = driver.findElement(By.className("float-container"));
 
     const actions = driver.actions({
@@ -28,6 +29,7 @@ describe("Test scenario 1", function () {
 
     await driver.sleep(2000);
 
+    // Check if the caption is correctly displayed
     const actualText = await driver
       .findElement(By.className("caption-wrapper"))
       .getText()
@@ -37,10 +39,12 @@ describe("Test scenario 1", function () {
 
     assert.strictEqual(actualText, expectedText);
 
+    // Click on the icon in the top-left-hand corner of the SmartFrame
     await driver.findElement(By.className("action-buttons__caption")).click();
 
     await driver.sleep(2000);
 
+    // Check if the layer opens
     const isLayerOpen = await driver
       .findElement(By.className("hide-copyright"))
       .isDisplayed();

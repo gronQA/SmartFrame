@@ -7,6 +7,7 @@ describe("Test scenario 2", function () {
 
     await driver.get("https://smartitnow.blogspot.com/p/w.html");
 
+    // Mouse over the SmartFrame
     const hoverable = driver.findElement(By.className("float-container"));
 
     const actions = driver.actions({
@@ -21,6 +22,7 @@ describe("Test scenario 2", function () {
 
     await driver.sleep(2000);
 
+    // Check if the Share button is displayed correctly
     const actualText = await driver
       .findElement(
         By.xpath(
@@ -35,6 +37,7 @@ describe("Test scenario 2", function () {
     const expectedText = "SHARE";
     assert.strictEqual(actualText, expectedText);
 
+    // Click on the icon in the top-left-hand corner of the SmartFrame
     await driver
       .findElement(
         By.xpath(
@@ -43,6 +46,7 @@ describe("Test scenario 2", function () {
       )
       .click();
 
+    // Check if the redirect works
     const tabs = await driver.getAllWindowHandles();
 
     await driver.switchTo().window(tabs[1]);
