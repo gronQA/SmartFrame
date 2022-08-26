@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2022-08-25T22:07:28.051Z",
-    "end": "2022-08-25T22:07:40.721Z",
-    "duration": 12670,
+    "start": "2022-08-26T17:11:45.908Z",
+    "end": "2022-08-26T17:12:00.867Z",
+    "duration": 14959,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "d2d94543-63bf-497c-ab48-d55bc5abb436",
+      "uuid": "759a5016-4479-45c7-90f7-ca4707f1e9fb",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "abfd52b5-b719-4447-92ff-d6eecf8af781",
+          "uuid": "9336fa84-d0d8-498c-9edb-03c6973bffcf",
           "title": "Test scenario 1",
           "fullFile": "C:\\Users\\Gronek\\Documents\\SmartFrame\\SmartFrame\\test\\scenario1.spec.js",
           "file": "\\test\\scenario1.spec.js",
@@ -38,35 +38,35 @@
               "title": "Opens SmartFrame 1, hovers over the SmartFrame, checks if the caption is correctly displayed, clicks on the icon in the top-left-hand corner and expects the layer to open",
               "fullTitle": "Test scenario 1 Opens SmartFrame 1, hovers over the SmartFrame, checks if the caption is correctly displayed, clicks on the icon in the top-left-hand corner and expects the layer to open",
               "timedOut": false,
-              "duration": 5056,
+              "duration": 5969,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "let driver = await new Builder().forBrowser(\"chrome\").build();\nawait driver.get(\"https://smartitnow.blogspot.com/p/e.html\");\nconst hoverable = driver.findElement(By.className(\"float-container\"));\nconst actions = driver.actions({\n  async: true,\n});\nawait actions\n  .move({\n    origin: hoverable,\n  })\n  .perform();\nawait driver\n  .switchTo()\n  .frame(driver.findElement(By.className(\"smartframe-embed\")));\nawait driver.sleep(1000);\nconst actualText = await driver\n  .findElement(By.className(\"caption-wrapper\"))\n  .getText()\n  .then(function (value) {\n    return value;\n  });\nassert.strictEqual(actualText, expectedText);\nawait driver.findElement(By.className(\"action-buttons__caption\")).click();\nawait driver.sleep(1000);\nconst isLayerOpen = await driver\n  .findElement(By.className(\"hide-copyright\"))\n  .isDisplayed();\nassert.strictEqual(isLayerOpen, true);\nawait driver.quit();",
+              "code": "let driver = await new Builder().forBrowser(\"chrome\").build();\nawait driver.get(\"https://smartitnow.blogspot.com/p/e.html\");\nconst hoverable = driver.findElement(By.className(\"float-container\"));\nconst actions = driver.actions({\n  async: true,\n});\nawait actions\n  .move({\n    origin: hoverable,\n  })\n  .perform();\nawait driver\n  .switchTo()\n  .frame(driver.findElement(By.className(\"smartframe-embed\")));\nawait driver.sleep(2000);\nconst actualText = await driver\n  .findElement(By.className(\"caption-wrapper\"))\n  .getText()\n  .then(function (value) {\n    return value;\n  });\nassert.strictEqual(actualText, expectedText);\nawait driver.findElement(By.className(\"action-buttons__caption\")).click();\nawait driver.sleep(2000);\nconst isLayerOpen = await driver\n  .findElement(By.className(\"hide-copyright\"))\n  .isDisplayed();\nassert.strictEqual(isLayerOpen, true);\nawait driver.quit();",
               "err": {},
-              "uuid": "90028ec0-b9c0-4d23-b159-c7fad6b5b64d",
-              "parentUUID": "abfd52b5-b719-4447-92ff-d6eecf8af781",
+              "uuid": "cdf1afb9-f8dd-4522-b491-1b0baffc59a3",
+              "parentUUID": "9336fa84-d0d8-498c-9edb-03c6973bffcf",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "90028ec0-b9c0-4d23-b159-c7fad6b5b64d"
+            "cdf1afb9-f8dd-4522-b491-1b0baffc59a3"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 5056,
+          "duration": 5969,
           "root": false,
           "rootEmpty": false,
           "_timeout": 0
         },
         {
-          "uuid": "2e0be65c-86c2-461c-b917-9ec76d9a0fef",
+          "uuid": "f080c6df-d744-43da-ad8c-87b6470cfc3c",
           "title": "Test scenario 2",
           "fullFile": "C:\\Users\\Gronek\\Documents\\SmartFrame\\SmartFrame\\test\\scenario2.spec.js",
           "file": "\\test\\scenario2.spec.js",
@@ -77,29 +77,29 @@
               "title": "Opens SmartFrame 2, hovers over the SmartFrame, checks if the share button is displayed correctly, clicks on the icon in the top-left-hand corner and expects to get redirected",
               "fullTitle": "Test scenario 2 Opens SmartFrame 2, hovers over the SmartFrame, checks if the share button is displayed correctly, clicks on the icon in the top-left-hand corner and expects to get redirected",
               "timedOut": false,
-              "duration": 7604,
+              "duration": 8972,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "let driver = await new Builder().forBrowser(\"chrome\").build();\nawait driver.get(\"https://smartitnow.blogspot.com/p/w.html\");\nconst hoverable = driver.findElement(By.className(\"float-container\"));\nconst actions = driver.actions({\n  async: true,\n});\nawait actions\n  .move({\n    origin: hoverable,\n  })\n  .perform();\nawait driver.sleep(1000);\nconst actualText = await driver\n  .findElement(\n    By.xpath(\n      \"//*[@id='post-body-4144740677389794309']/smart-frame/div[1]/div[4]/div[2]/div[2]/a[1]/span\"\n    )\n  )\n  .getText()\n  .then(function (value) {\n    return value;\n  });\nassert.strictEqual(actualText, expectedText);\nawait driver\n  .findElement(\n    By.xpath(\n      \"//*[@id='post-body-4144740677389794309']/smart-frame/div[1]/div[4]/div[2]/div[1]/a\"\n    )\n  )\n  .click();\nlet tabs = await driver.getAllWindowHandles();\nlet url = await driver.switchTo().window(tabs[1]);\nactualUrl = await driver.getCurrentUrl();\nassert.strictEqual(actualUrl, expectedUrl);\nawait driver.quit();",
+              "code": "let driver = await new Builder().forBrowser(\"chrome\").build();\nawait driver.get(\"https://smartitnow.blogspot.com/p/w.html\");\nconst hoverable = driver.findElement(By.className(\"float-container\"));\nconst actions = driver.actions({\n  async: true,\n});\nawait actions\n  .move({\n    origin: hoverable,\n  })\n  .perform();\nawait driver.sleep(2000);\nconst actualText = await driver\n  .findElement(\n    By.xpath(\n      \"//*[@id='post-body-4144740677389794309']/smart-frame/div[1]/div[4]/div[2]/div[2]/a[1]/span\"\n    )\n  )\n  .getText()\n  .then(function (value) {\n    return value;\n  });\nconst expectedText = \"SHARE\";\nassert.strictEqual(actualText, expectedText);\nawait driver\n  .findElement(\n    By.xpath(\n      \"//*[@id='post-body-4144740677389794309']/smart-frame/div[1]/div[4]/div[2]/div[1]/a\"\n    )\n  )\n  .click();\nconst tabs = await driver.getAllWindowHandles();\nawait driver.switchTo().window(tabs[1]);\nactualUrl = await driver.getCurrentUrl();\nconst expectedUrl = \"https://smartframe.io/\";\nassert.strictEqual(actualUrl, expectedUrl);\nawait driver.quit();",
               "err": {},
-              "uuid": "8f290772-dc28-4785-98f9-fbdfccde8f7a",
-              "parentUUID": "2e0be65c-86c2-461c-b917-9ec76d9a0fef",
+              "uuid": "95167c82-5e19-4853-b258-5113aa535d46",
+              "parentUUID": "f080c6df-d744-43da-ad8c-87b6470cfc3c",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "8f290772-dc28-4785-98f9-fbdfccde8f7a"
+            "95167c82-5e19-4853-b258-5113aa535d46"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 7604,
+          "duration": 8972,
           "root": false,
           "rootEmpty": false,
           "_timeout": 0

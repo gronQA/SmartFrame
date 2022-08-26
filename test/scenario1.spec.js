@@ -26,7 +26,7 @@ describe("Test scenario 1", function () {
       .switchTo()
       .frame(driver.findElement(By.className("smartframe-embed")));
 
-    await driver.sleep(1000);
+    await driver.sleep(2000);
 
     const actualText = await driver
       .findElement(By.className("caption-wrapper"))
@@ -39,7 +39,7 @@ describe("Test scenario 1", function () {
 
     await driver.findElement(By.className("action-buttons__caption")).click();
 
-    await driver.sleep(1000);
+    await driver.sleep(2000);
 
     const isLayerOpen = await driver
       .findElement(By.className("hide-copyright"))

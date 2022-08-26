@@ -1,7 +1,5 @@
 const { Builder, By } = require("selenium-webdriver");
 const assert = require("assert");
-const expectedText = "SHARE";
-const expectedUrl = "https://smartframe.io/";
 
 describe("Test scenario 2", function () {
   it("Opens SmartFrame 2, hovers over the SmartFrame, checks if the share button is displayed correctly, clicks on the icon in the top-left-hand corner and expects to get redirected", async function () {
@@ -21,7 +19,7 @@ describe("Test scenario 2", function () {
       })
       .perform();
 
-    await driver.sleep(1000);
+    await driver.sleep(2000);
 
     const actualText = await driver
       .findElement(
@@ -34,6 +32,7 @@ describe("Test scenario 2", function () {
         return value;
       });
 
+    const expectedText = "SHARE";
     assert.strictEqual(actualText, expectedText);
 
     await driver
@@ -44,12 +43,13 @@ describe("Test scenario 2", function () {
       )
       .click();
 
-    let tabs = await driver.getAllWindowHandles();
+    const tabs = await driver.getAllWindowHandles();
 
-    let url = await driver.switchTo().window(tabs[1]);
+    await driver.switchTo().window(tabs[1]);
 
     actualUrl = await driver.getCurrentUrl();
 
+    const expectedUrl = "https://smartframe.io/";
     assert.strictEqual(actualUrl, expectedUrl);
 
     await driver.quit();
