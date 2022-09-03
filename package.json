@@ -4,7 +4,7 @@
   "description": "QA Assignment",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --no-timeouts --reporter mochawesome --reporter-options reportDir=test-reports,reportFilename=test-report"
+    "test": "mocha --no-timeouts --reporter mochawesome --reporter-options reportDir=test-reports,reportFilename=test-report --parallel"
   },
   "repository": {
     "type": "git",
