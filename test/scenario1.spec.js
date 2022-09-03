@@ -27,8 +27,9 @@ describe("Test scenario 1", function () {
       .frame(driver.findElement(By.className("smartframe-embed")));
 
     // Check if the caption is correctly displayed
-    await driver.wait(() =>
-      driver.findElement(By.className("caption-wrapper")).getText()
+    await driver.wait(
+      () => driver.findElement(By.className("caption-wrapper")).getText(),
+      10000
     );
     const actualText = await driver
       .findElement(By.className("caption-wrapper"))
@@ -40,7 +41,7 @@ describe("Test scenario 1", function () {
 
     // Check if the layer opens
     const layer = await driver.findElement(By.className("hide-copyright"));
-    await driver.wait(() => layer.isDisplayed());
+    await driver.wait(() => layer.isDisplayed(), 10000);
     assert.strictEqual(await layer.isDisplayed(), true);
 
     await driver.quit();
