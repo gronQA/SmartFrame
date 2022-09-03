@@ -32,6 +32,7 @@ describe("Test scenario 2", function () {
           .getText(),
       10000
     );
+
     const actualText = await driver
       .findElement(
         By.xpath(
