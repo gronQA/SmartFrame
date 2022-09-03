@@ -1,7 +1,5 @@
 const { Builder, By } = require("selenium-webdriver");
 const assert = require("assert");
-const expectedText =
-  "An image (from Latin: imago) is an artifact that depicts visual perception, such as a photograph or other two-dimensional picture, that resembles a subject—usually a physical object—and thus provides a depiction of it. In the context of signal processing, an image is a distributed amplitude of color(s). A pictorial script is a writing system that employs images as symbols for various semantic entities, rather than the abstract signs used by alphabets.";
 
 describe("Test scenario 1", function () {
   it("Opens SmartFrame 1, hovers over the SmartFrame, checks if the caption is correctly displayed, clicks on the icon in the top-left-hand corner and expects the layer to open", async function () {
@@ -34,6 +32,8 @@ describe("Test scenario 1", function () {
     const actualText = await driver
       .findElement(By.className("caption-wrapper"))
       .getText();
+    const expectedText =
+      "An image (from Latin: imago) is an artifact that depicts visual perception, such as a photograph or other two-dimensional picture, that resembles a subject—usually a physical object—and thus provides a depiction of it. In the context of signal processing, an image is a distributed amplitude of color(s). A pictorial script is a writing system that employs images as symbols for various semantic entities, rather than the abstract signs used by alphabets.";
     assert.strictEqual(actualText, expectedText);
 
     // Click on the icon in the top-left-hand corner of the SmartFrame

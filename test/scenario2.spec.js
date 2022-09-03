@@ -20,19 +20,25 @@ describe("Test scenario 2", function () {
       })
       .perform();
 
-    await driver.sleep(2000);
-
     // Check if the Share button is displayed correctly
+    await driver.wait(
+      () =>
+        driver
+          .findElement(
+            By.xpath(
+              "//*[@id='post-body-4144740677389794309']/smart-frame/div[1]/div[4]/div[2]/div[2]/a[1]/span"
+            )
+          )
+          .getText(),
+      10000
+    );
     const actualText = await driver
       .findElement(
         By.xpath(
           "//*[@id='post-body-4144740677389794309']/smart-frame/div[1]/div[4]/div[2]/div[2]/a[1]/span"
         )
       )
-      .getText()
-      .then(function (value) {
-        return value;
-      });
+      .getText();
 
     const expectedText = "SHARE";
     assert.strictEqual(actualText, expectedText);
