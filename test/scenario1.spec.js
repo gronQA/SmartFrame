@@ -8,6 +8,10 @@ describe("Test scenario 1", function () {
     await driver.get("https://smartitnow.blogspot.com/p/e.html");
 
     // Mouse over the SmartFrame
+    await driver.wait(
+      () => driver.findElement(By.className("float-container")).isDisplayed(),
+      20000
+    );
     const hoverable = driver.findElement(By.className("float-container"));
 
     const actions = driver.actions({
