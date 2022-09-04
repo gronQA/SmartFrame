@@ -27,7 +27,7 @@ describe("Test scenario 1", function () {
     // Check if the caption is correctly displayed
     await driver.wait(
       () => driver.findElement(By.className("caption-wrapper")).getText(),
-      10000
+      20000
     );
 
     const actualText = await driver
