@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "QA Assignment",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "mocha --no-timeouts --reporter mochawesome --reporter-options reportDir=test-reports,reportFilename=test-report"
   },

@@ -1,14 +1,17 @@
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
 const { Builder, By, until } = require("selenium-webdriver");
 const assert = require("assert");
+import { data } from "./data.js";
 
 describe("Test scenario 1", function () {
   it("Opens SmartFrame 1, hovers over the SmartFrame, checks if the caption is correctly displayed, clicks on the icon in the top-left-hand corner and expects the layer to open", async function () {
     const driver = await new Builder().forBrowser("chrome").build();
 
-    await driver.get("https://smartitnow.blogspot.com/p/e.html");
+    await driver.get(data.path.smartFrame1);
 
     // Mouse over the SmartFrame
-    const hoverable = await driver.findElement(By.className("float-container"));
+    const hoverable = await driver.findElement(data.selectors.hoverable);
 
     await driver.wait(until.elementIsVisible(hoverable), 20000);
 
@@ -22,26 +25,22 @@ describe("Test scenario 1", function () {
       })
       .perform();
 
-    await driver
-      .switchTo()
-      .frame(driver.findElement(By.className("smartframe-embed")));
+    await driver.switchTo().frame(driver.findElement(data.selectors.frame));
 
     // Check if the caption is correctly displayed
-    const caption = await driver.findElement(By.className("caption-wrapper"));
+    const caption = await driver.findElement(data.selectors.caption);
 
     await driver.wait(until.elementIsVisible(caption), 20000);
 
     const actualText = await caption.getText();
 
-    const expectedText =
-      "An image (from Latin: imago) is an artifact that depicts visual perception, such as a photograph or other two-dimensional picture, that resembles a subject—usually a physical object—and thus provides a depiction of it. In the context of signal processing, an image is a distributed amplitude of color(s). A pictorial script is a writing system that employs images as symbols for various semantic entities, rather than the abstract signs used by alphabets.";
-    assert.strictEqual(actualText, expectedText);
+    assert.strictEqual(actualText, data.expectedText.caption);
 
     // Click on the icon in the top-left-hand corner of the SmartFrame
-    await driver.findElement(By.className("action-buttons__caption")).click();
+    await driver.findElement(data.selectors.embedButton).click();
 
     // Check if the layer opens
-    const layer = await driver.findElement(By.className("hide-copyright"));
+    const layer = await driver.findElement(data.selectors.layer);
 
     await driver.wait(until.elementIsVisible(layer), 20000);
     assert.strictEqual(await layer.isDisplayed(), true);
