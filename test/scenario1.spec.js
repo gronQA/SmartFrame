@@ -43,7 +43,7 @@ describe("Test scenario 1", function () {
 
     // Check if the layer opens
     const layer = await driver.findElement(By.className("hide-copyright"));
-    await driver.wait(() => layer.isDisplayed(), 10000);
+    await driver.wait(() => layer.isDisplayed(), 20000);
     assert.strictEqual(await layer.isDisplayed(), true);
 
     await driver.quit();

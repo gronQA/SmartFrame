@@ -30,7 +30,7 @@ describe("Test scenario 2", function () {
             )
           )
           .getText(),
-      10000
+      20000
     );
 
     const actualText = await driver
