@@ -28,8 +28,11 @@ describe("Test scenario 1", function () {
 
     // Check if the caption is correctly displayed
     const caption = await driver.findElement(By.className("caption-wrapper"));
+
     await driver.wait(until.elementIsVisible(caption), 20000);
+
     const actualText = await caption.getText();
+
     const expectedText =
       "An image (from Latin: imago) is an artifact that depicts visual perception, such as a photograph or other two-dimensional picture, that resembles a subject—usually a physical object—and thus provides a depiction of it. In the context of signal processing, an image is a distributed amplitude of color(s). A pictorial script is a writing system that employs images as symbols for various semantic entities, rather than the abstract signs used by alphabets.";
     assert.strictEqual(actualText, expectedText);
@@ -39,6 +42,7 @@ describe("Test scenario 1", function () {
 
     // Check if the layer opens
     const layer = await driver.findElement(By.className("hide-copyright"));
+
     await driver.wait(until.elementIsVisible(layer), 20000);
     assert.strictEqual(await layer.isDisplayed(), true);
 
